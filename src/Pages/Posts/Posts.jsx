@@ -32,7 +32,7 @@ export default function Posts() {
   // }, [])
 
  const {data, isLoading, isFetching, isError, error} = useQuery({
-  queryKey: ["allPostss"],
+  queryKey: ["allPosts"],
   queryFn:getAllPosts,
   // refetchInterval: 200,
   // refetchOnMount: false,

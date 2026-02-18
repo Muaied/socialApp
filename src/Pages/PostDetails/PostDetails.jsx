@@ -27,7 +27,7 @@ export default function PostDetails() {
   return (
     <div className="max-w-3xl mx-auto mt-5">
     <PostCard comments={commentData} userPost={data.data.data.post}/>
-    <Parent/>
+    {/* <Parent/> */}
     </div>
   )
 }

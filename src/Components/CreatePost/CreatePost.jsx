@@ -57,7 +57,7 @@ export default function CreatePost() {
     myFormData.append("body", data.body)
     if(image) myFormData.append("image", image);
 
-    return axios.post(`${import.meta.env.VITE_BASE_URL}/posts`,myFormData, {
+    return axios.post(`${import.meta.env.VITE_BASE_URL}posts`,myFormData, {
         headers: {
             token: localStorage.getItem('token')
         }
@@ -72,7 +72,7 @@ export default function CreatePost() {
        setUserImage(null)
     },
     onError: function({response}) {
-      toast.error(response.data.error)
+      toast.error(response.data.message)
     }
   })
 
