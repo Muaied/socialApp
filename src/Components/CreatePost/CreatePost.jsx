@@ -67,9 +67,13 @@ export default function CreatePost() {
   const {mutate, data, isError, error, isPending} = useMutation({
     mutationFn:sendPost,
     onSuccess: function({data}) {
+       
       toast.success(data.message)
       reset()
        setUserImage(null)
+      queryClient.invalidateQueries({
+        queryKey: ["allPosts"],
+      })
     },
     onError: function({response}) {
       toast.error(response.data.message)
