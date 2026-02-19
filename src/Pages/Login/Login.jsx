@@ -4,7 +4,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import * as zod from "zod";
 import { AuthUserContext } from "../../Context/AuthContextProvider/AuthContextProvider";
 
@@ -133,7 +133,8 @@ export default function Login() {
         type="password"
       />
 
-    
+          <p>I Have Not Account? <Link to='/Register' className="text-blue-500 hover:underline font-semibold">Register</Link></p>
+
       <div className="flex flex-col w-full  gap-5">
         <Button color="primary" type="submit" isLoading={isloading}>
           Submit
