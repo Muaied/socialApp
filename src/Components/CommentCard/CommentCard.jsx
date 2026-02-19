@@ -1,9 +1,14 @@
 import { Avatar, Card, CardBody, CardFooter, CardHeader } from '@heroui/react'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import UpdateComment from '../UpdateComment/UpdateComment'
+import DeleteComment from '../DeleteComment/DeleteComment'
+import { AuthUserContext } from '../../Context/AuthContextProvider/AuthContextProvider'
 
 export default function CommentCard({comment}) {
-    const {createdAt, post, commentCreator:{name, photo}, content} = comment;
+    const {createdAt, post, commentCreator:{name, photo, _id: creatorId}, content, _id, image: commentImage} = comment;
+    const {userData} = useContext(AuthUserContext);
     const [image,setImage] = useState(null)
+    const isCommentOwner = userData?._id === creatorId;
   return (
     <Card className="bg-black/85 m-6 text-white">
       <CardHeader className="justify-between">
@@ -26,7 +31,16 @@ export default function CommentCard({comment}) {
         {content}
       </CardBody>
       <CardFooter className="gap-3">
-        
+        <UpdateComment 
+          postId={post} 
+          commentId={_id}
+          currentContent={content}
+          currentImage={commentImage}
+        />
+        <DeleteComment 
+          postId={post}
+          commentId={_id}
+        />
       </CardFooter>
     </Card>
   )
