@@ -31,16 +31,20 @@ export default function CommentCard({comment}) {
         {content}
       </CardBody>
       <CardFooter className="gap-3">
-        <UpdateComment 
-          postId={post} 
-          commentId={_id}
-          currentContent={content}
-          currentImage={commentImage}
-        />
-        <DeleteComment 
-          postId={post}
-          commentId={_id}
-        />
+        {isCommentOwner && (
+          <>
+            <UpdateComment 
+              postId={post} 
+              commentId={_id}
+              currentContent={content}
+              currentImage={commentImage}
+            />
+            <DeleteComment 
+              postId={post}
+              commentId={_id}
+            />
+          </>
+        )}
       </CardFooter>
     </Card>
   )
