@@ -5,7 +5,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { axiosInterceptos } from "../../Shared/axiosInterceptors/axiosInterceptors";
 import { DocumentUpload } from "iconsax-reactjs";
-
+import { PencilIcon } from "@heroicons/react/24/outline"
 export default function UpdateComment({ postId, commentId, currentContent, currentImage, onClose }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const imageUpload = useRef();
@@ -67,7 +67,7 @@ export default function UpdateComment({ postId, commentId, currentContent, curre
         onClick={handleUpdateClick}
         size="sm"
       >
-        ✏️
+        <PencilIcon className="h-5 w-5" />
       </Button>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur">

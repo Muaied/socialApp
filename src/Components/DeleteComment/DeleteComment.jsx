@@ -2,7 +2,7 @@ import { Button, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDi
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { axiosInterceptos } from "../../Shared/axiosInterceptors/axiosInterceptors";
-
+import { TrashIcon } from "@heroicons/react/24/outline";
 export default function DeleteComment({ postId, commentId, onClose }) {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const queryClient = useQueryClient();
@@ -40,7 +40,7 @@ export default function DeleteComment({ postId, commentId, onClose }) {
         onClick={handleDeleteClick}
         size="sm"
       >
-        🗑️
+        <TrashIcon style={{ width: 20, height: 20 }} />
       </Button>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} backdrop="blur">
